@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Client as Client;
 use Illuminate\Config\Repository;
+use PharData;
 
 class GeoIPUpdater
 {
