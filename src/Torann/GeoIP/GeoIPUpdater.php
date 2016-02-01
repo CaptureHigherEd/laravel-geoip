@@ -47,7 +47,7 @@ class GeoIPUpdater
 		$maxMindDatabaseUrl = $this->config->get('geoip.maxmind.update_url');
 		$databasePath = $this->config->get('geoip.maxmind.database_path');
 		$tmpPath = $this->config->get('geoip.maxmind.tmp_path');
-		$mmdb = $tmpPath = $this->config->get('geoip.maxmind.mmdb');
+		$mmdb =  $this->config->get('geoip.maxmind.mmdb');
 
 
       	if(!is_dir($tmpPath)) {
