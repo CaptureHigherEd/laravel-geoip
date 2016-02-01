@@ -50,22 +50,22 @@ class GeoIPUpdater
 		$mmdb = $tmpPath = $this->config->get('geoip.maxmind.mmdb');
 
 
-      	if(!is_dir($tmp_path)) {
-			mkdir($tmp_path);
+      	if(!is_dir($tmpPath)) {
+			mkdir($tmpPath);
 		}
 
-		$tmp = $tmp_path . 'tmp.tar.gz';
+		$tmp = $tmpPath . 'tmp.tar.gz';
         file_put_contents($tmp, fopen($maxMindDatabaseUrl, 'r'));
 
         $archive = new PharData($tmp);
-        $archive->extractTo($tmp_path);
-		$contents = scandir($tmp_path);
+        $archive->extractTo($tmpPath);
+		$contents = scandir($tmpPath);
 		$tmp_dir;
 		foreach ($contents as $content) {
 		    if ($content!= '.' &&  $content != '..'){
-			    if(is_dir($tmp_path .$content)) {
-			    	$tmp_dir = $tmp_path .$content;
-			    	file_put_contents($databasePath,  fopen($tmp_path .$content.'/' . $mmdb, 'r'));
+			    if(is_dir($tmpPath .$content)) {
+			    	$tmp_dir = $tmpPath .$content;
+			    	file_put_contents($databasePath,  fopen($tmpPath .$content.'/' . $mmdb, 'r'));
 			   	}
 			}
 		}
